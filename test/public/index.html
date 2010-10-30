@@ -1,0 +1,41 @@
+<html>
+  <script src="dojo/dojo.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript" charset="utf-8">
+    dojo.require("data.binding");
+    var binding = null;
+    var report = function(a){
+      console.log("change happened");
+      console.log(a);      
+      // toJson will output all the mappings.
+      console.log(binding.toJson())
+    }
+    
+    dojo.addOnLoad(function(){
+      binding = new data.binding({
+        name: "name_input",
+        age: "age_input",
+        something: "something_input"
+      });
+
+      // connect via mapping of function and binding name
+      binding.bindingActions({
+        name: report,
+        age: report,
+        something: report
+      });
+
+      // connect via direct connect call passing scope and method
+      binding.connect("something", console, "log");
+
+      // connect via direct call passing a function
+      binding.connect("something", function(){ console.log("ASD")});
+    })
+  </script>
+  <body>
+    <form>
+      <input id="name_input" />
+      <input id="age_input" />
+      <input id="something_input" />
+    </form>
+  </body>
+</html>
