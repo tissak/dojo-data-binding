@@ -28,7 +28,7 @@ A helper method called bindingActions will take in a series of internal labels a
    
     binding.bindingActions({
       name: report,
-      age: report,
+      age: [console, "log"],
       something: report
     });
 
@@ -64,7 +64,7 @@ For getting the value back out we can either directly access that value via the 
       // connect via mapping of function and binding name
       binding.bindingActions({
         name: report,
-        age: report,
+        age: [console, "log"],
         something: report
       });
 
