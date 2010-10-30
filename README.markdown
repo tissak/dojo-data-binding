@@ -26,10 +26,10 @@ Internal 'name' will keep in sync with node with id "name_input"
 
 A helper method called bindingActions will take in a series of internal labels and bind them to actions that should be triggered on a change. This follows the convention of dojo.connect only the source is taken care of for you so you only need to provide either a function or a source object and method name string.
    
-    binding.bindingActions({
-      name: report,
-      age: report,
-      something: report
+    binding = new data.binding({
+      name: "name_input",
+      age: "age_input",
+      something: "something_input"
     });
 
 Further actions can be bound on an individual level using the connect method.
